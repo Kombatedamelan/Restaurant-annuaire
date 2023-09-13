@@ -1,0 +1,65 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-image:  linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("/assets/images/img1.jpeg") ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+section{
+    background-color: #000;
+    height: 370px;
+    width: 300px;
+    border-radius: 15px;
+    text-align: center;
+    color: #fff;
+    opacity: 0.7;
+    
+}
+a{
+    color: #fff;
+}
+form{
+    display: block;
+    margin-top: 20px;
+}
+form h3{
+    margin: 10px;
+}
+input{
+    margin: 10px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: none;
+    color: #fff;
+}
+input::placeholder{
+    color: #fff;
+}
+input[type="text"]{
+    width: 90%;
+    height: 30px;
+}
+input[type="password"]{
+    width: 90%;
+    height: 30px;
+}
+form button{
+    margin: 10px;
+    border: none;
+    border-radius: 30px;
+    height: 40px;
+    width: 200px;
+    background-color: #006400;
+    color: #fff;
+    cursor: pointer;
+}
