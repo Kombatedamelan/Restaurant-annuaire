@@ -36,7 +36,8 @@
 </head>
 <body>
     <div class="container">
-        <form action="" class="form-signup">
+        <form action="{{route('restaurantStore')}}" method="POST" enctype="multipart/form-data" class="form-signup">
+            @csrf
             <h2 class="text-center">Inscrire restaurant</h2>
             
             <div class="form-group">

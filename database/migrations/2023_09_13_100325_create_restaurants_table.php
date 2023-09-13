@@ -19,7 +19,7 @@ class CreateRestaurantsTable extends Migration
             $table->string('name');
             $table->string('description');
             $table->string('place');
-            $table->string('cover');
+            $table->string('cover')->nullable();
             $table->string('start_time');
             $table->string('end_time');
             $table->timestamps();

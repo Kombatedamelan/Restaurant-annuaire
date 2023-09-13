@@ -20,16 +20,18 @@ Route::get('/liste', [PagesController::class, 'liste'])->name('liste');
 Route::get('/userRegister', [RegistersController::class, "userRegisterIndex"])->name("UserRegister");
 Route::post('/userRegister', [RegistersController::class, "userRegister"])->name('userRegister.store');
 
-Route::get('/restaurant', [PagesController::class, 'restaurant'])->name('restaurant.Index');
-
+Route::get('/liste', [PagesController::class, 'liste'])->name('liste'); 
 
 Route::group(["middleware" => ["verified"]], function () {
     //  Mettre les routes qui sont protégees par le fait que la ai verifié son compte
-    Route::get('/liste', [PagesController::class, 'liste'])->name('liste');    
+    
+    Route::get('/dashboard', [PresterController::class, "index"])->name('prester.index');   
 });
     
-Route::group(["middleware" => ["signed"]], function () {
+Route::group(["middleware" => ["auth"]], function () {
     //  Mettre les routes qui sont protégees par le fait que la ai verifié son compte
+    Route::get('/restaurant', [PagesController::class, 'restaurant'])->name('restaurant.Index');
+    Route::post('/restaurant', [PagesController::class, 'restaurantStore'])->name('restaurantStore');
 
     
 });

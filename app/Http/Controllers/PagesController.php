@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Restaurant;
+use Illuminate\Support\Str;
 
 class PagesController extends Controller
 {
@@ -20,7 +22,7 @@ class PagesController extends Controller
 
     public function restaurantStore(Request $request){
 
-        restaurant::create([
+        $restaurant = Restaurant::create([
             'name'=>$request->name,
             'description'=>$request->description,
             'place'=>$request->place,
@@ -31,8 +33,8 @@ class PagesController extends Controller
         if($request->cover){
             $coverNewName = "plants-cover-".Str::uuid().".".$request->cover->extension();
             $request->cover->move(public_path("images/uploads/events/covers"),$coverNewName);
-            $event->update(["cover"=>$coverNewName]);
+            $restaurant->update(["cover"=>$coverNewName]);
         }
-        return back()->with('success', 'restaurant enregistré avec succes !');
+        return redirect()->route('index');
     }
 }

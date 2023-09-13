@@ -150,7 +150,7 @@ return [
 
     'redirects' => [
         // ...
-        'verified' => '/liste', // Rediriger vers la page de connexion après vérification d'e-mail
+        'verified' => '/restaurant', // Rediriger vers la page de connexion après vérification d'e-mail
     ],
     
 
