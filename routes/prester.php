@@ -15,7 +15,7 @@ use App\Http\Controllers\PresterController;
 */
 
 Route::group(["prefix"=>"prester"], function(){
-    Route::group(['middleware' => 'auth', 'verified', 'prester_dashboard'], function () {
+    Route::group(['middleware' => "verified", "auth", "prester_dashboard"], function () {
         Route::get('/dashboard', [PresterController::class, "index"])->name('prester.index');
         
         
