@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\RegistersController;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,21 @@ Route::get('/userRegister', [RegistersController::class, "userRegisterIndex"])->
 Route::post('/userRegister', [RegistersController::class, "userRegister"])->name('userRegister.store');
 
 Route::get('/liste', [PagesController::class, 'liste'])->name('liste'); 
+
+
+ 
+Route::post('/email/verification-notification', function (Request $request) {
+    $request->user()->sendEmailVerificationNotification();
+ 
+    return redirect('/restaurant');
+})->middleware(['auth', 'throttle:6,1'])->name('verification.send');
+
+
+
+
+
+
+
 
 Route::group(["middleware" => ["verified"]], function () {
     //  Mettre les routes qui sont protégees par le fait que la ai verifié son compte
